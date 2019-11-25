@@ -20,7 +20,7 @@ export class ComponentService implements IComponentService {
 
     async update(id: number | string, component: IComponentDTO): Promise<IComponentDTO> {
         return new Promise((resolve, reject) => {
-            reject('component not existed')
+            resolve(demoComponent)
             // try {
             //     const latestVersion = component.latestVersion.split('.');
             //     latestVersion[latestVersion.length - 1] = String(parseInt(latestVersion[latestVersion.length - 1]) + 1);

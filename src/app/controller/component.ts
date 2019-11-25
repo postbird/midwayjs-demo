@@ -8,7 +8,7 @@ export class ComponentController {
     @inject()
     ctx: Context; 
 
-    @inject('componentService')
+    @inject('componentService') 
     component: IComponentService
 
     @get('/update/:id')

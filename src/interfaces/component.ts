@@ -1,7 +1,7 @@
 /**
  * 模块实例
  */
-export interface IComponentDTO {
+export interface IComponentDTO { 
     id: number | string,
     latestVersion: string,
     name: string,
