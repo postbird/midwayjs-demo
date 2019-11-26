@@ -25,7 +25,6 @@ export class ComponentService implements IComponentService {
                 const latestVersion = demoComponent.latestVersion.split('.');
                 latestVersion[latestVersion.length - 1] = String(parseInt(latestVersion[latestVersion.length - 1]) + 1);
                 demoComponent.latestVersion = latestVersion.join('.');
-                console.log(demoComponent);
                 resolve(demoComponent)
             } catch (err) {
                 reject(err);
