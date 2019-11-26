@@ -1,5 +1,6 @@
-import { provide } from 'midway';
+import { provide, inject } from 'midway';
 import { IComponentDTO, IComponentService } from '../interfaces/component';
+// import { IHttpService } from '../interfaces/http';
 
 const demoComponent: IComponentDTO = {
     id: '123',
@@ -10,8 +11,13 @@ const demoComponent: IComponentDTO = {
 @provide('componentService')
 export class ComponentService implements IComponentService {
 
-    async create(component: IComponentDTO): Promise<IComponentDTO> {
-        return Promise.resolve(component);
+    @inject('httpService')
+    http: any
+
+
+    async create(): Promise<IComponentDTO> {
+        const res = await this.http.get();
+        return Promise.resolve(res);
     }
 
     async getById(id: number | string): Promise<IComponentDTO> {
@@ -29,7 +35,6 @@ export class ComponentService implements IComponentService {
             } catch (err) {
                 reject(err);
             }
-
         });
     }
 }

@@ -12,7 +12,7 @@ export interface IComponentService {
      * 创建模块
      * @param component 
      */
-    create(component: IComponentDTO): Promise<IComponentDTO>
+    create(): Promise<IComponentDTO>
 
     getById(id: number | string): Promise<IComponentDTO>
 
