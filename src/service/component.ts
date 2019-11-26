@@ -20,15 +20,16 @@ export class ComponentService implements IComponentService {
 
     async update(id: number | string, component: IComponentDTO): Promise<IComponentDTO> {
         return new Promise((resolve, reject) => {
-            resolve(demoComponent)
-            // try {
-            //     const latestVersion = component.latestVersion.split('.');
-            //     latestVersion[latestVersion.length - 1] = String(parseInt(latestVersion[latestVersion.length - 1]) + 1);
-            //     demoComponent.latestVersion = latestVersion.join('.');
-            //     resolve(demoComponent)
-            // } catch (err) {
-            //     reject(err);
-            // }
+            try {
+                // 为了测试 id 和 component 都没有使用
+                const latestVersion = demoComponent.latestVersion.split('.');
+                latestVersion[latestVersion.length - 1] = String(parseInt(latestVersion[latestVersion.length - 1]) + 1);
+                demoComponent.latestVersion = latestVersion.join('.');
+                console.log(demoComponent);
+                resolve(demoComponent)
+            } catch (err) {
+                reject(err);
+            }
 
         });
     }

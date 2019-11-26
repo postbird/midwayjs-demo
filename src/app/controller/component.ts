@@ -18,10 +18,10 @@ export class ComponentController {
             id: '123',
             latestVersion: '1.2.2',
             name: 'test-name'
-        };
+        }; 
         const componentInfo = await this.component.update(id, demoComponent);
         this.ctx.body = { success: true, message: '', data: componentInfo };
-    } 
+    }  
 
     @get('/:id')
     async index(ctx: Context) {
