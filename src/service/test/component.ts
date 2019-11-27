@@ -1,5 +1,5 @@
 import { provide, inject } from 'midway';
-import { IComponentDTO, IComponentService } from '../interfaces/component';
+import { IComponentDTO, IComponentService } from '../../interfaces/component';
 // import { IHttpService } from '../interfaces/http';
 
 const demoComponent: IComponentDTO = {
@@ -13,7 +13,6 @@ export class ComponentService implements IComponentService {
 
     @inject('httpService')
     http: any
-
 
     async create(): Promise<IComponentDTO> {
         const res = await this.http.get();

@@ -11,6 +11,32 @@ export class ComponentController {
     @inject('componentService')
     component: IComponentService
 
+    @inject('httpService')
+    http: any
+
+    @inject('testService')
+    test: any
+
+
+    @get('/test/test')
+    async testtest() {
+        const id: number | string = 123;
+        const demoComponent: IComponentDTO = {
+            id: '123',
+            latestVersion: '1.2.2',
+            name: 'test-name'
+        };
+        const componentInfo = await this.test.component.update(id, demoComponent);
+        this.ctx.body = { success: true, message: '', data: componentInfo };
+    }
+
+    @get('/http/test') 
+    async httptest() {
+        this.ctx.body = await this.http.get();
+    }
+
+
+
     @get('/create')
     async create(ctx: Context) {
         // const id: number | string = ctx.params.id; 
